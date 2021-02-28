@@ -26,9 +26,11 @@ func animate_player() -> void:
 	rotate_player()
 		
 
+# Sees what's the Angle between the player global position, And the next Vector
+# In the `path_to_follow` var, So it can change the animation correctly.
 func rotate_player() -> void:
-	var final_angle = rad2deg(get_angle_to(path_to_follow[0]))
-	current_rotation += final_angle - current_rotation
+	var next_angle = rad2deg(get_angle_to(path_to_follow[0]))
+	current_rotation += next_angle - current_rotation
 	if current_rotation < 45 and current_rotation > -45:
 		play("right")
 		flip_h = false
